@@ -3,7 +3,21 @@ import { View, Text, TextInput, Button, StyleSheet, AsyncStorage } from 'react-n
 
 export default function LogCigarettesScreen() {
   const [cigarettes, setCigarettes] = useState('');
+  const [mood, setMood] = useState('');
   const [message, setMessage] = useState('');
+
+  const moods = [
+    'Ansioso', 
+    'Molesto', 
+    'Triste', 
+    'Normal', 
+    'Alegre', 
+    'Hambriento', 
+    'Cansado', 
+    'Somnoliento', 
+    'Dolor físico', 
+    'Dificultad para respirar'
+  ];
 
   // Función para guardar los cigarrillos fumados en AsyncStorage
   const logCigarettes = async () => {
@@ -29,7 +43,7 @@ export default function LogCigarettesScreen() {
       // Guardar los datos actualizados en AsyncStorage
       await AsyncStorage.setItem('cigarettesData', JSON.stringify(data));
       
-      setMessage(`Registro guardado: ${cigarettes} cigarrillos`);
+      setMessage(`Registro guardado: ${cigarettes} cigarrillos, Estado: ${mood}`);
       setCigarettes('');
     } catch (error) {
       setMessage('Error al guardar los datos. Intenta nuevamente.');
@@ -46,6 +60,17 @@ export default function LogCigarettesScreen() {
         value={cigarettes}
         onChangeText={setCigarettes}
       />
+      <Text style={styles.label}>Selecciona tu estado de ánimo</Text>
+      <Picker
+        selectedValue={mood}
+        style={styles.picker}
+        onValueChange={(itemValue) => setMood(itemValue)}>
+        <Picker.Item label="Seleccione un estado" value="" />
+        {moods.map((moodOption, index) => (
+          <Picker.Item key={index} label={moodOption} value={moodOption} />
+        ))}
+      </Picker>
+
       <Button title="Registrar" onPress={logCigarettes} />
       {message ? <Text style={styles.message}>{message}</Text> : null}
     </View>
@@ -70,6 +95,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: '80%',
     paddingLeft: 10,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  picker: {
+    height: 50,
+    width: '80%',
+    marginBottom: 20,
   },
   message: {
     marginTop: 10,

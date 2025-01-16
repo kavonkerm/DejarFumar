@@ -1,23 +1,34 @@
-// App.js
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './screens/HomeScreen';
-import RegisterScreen from './screens/RegisterScreen';
-import LogCigarettesScreen from './screens/LogCigarettesScreen';
-import StatsScreen from './screens/StatsScreen';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
+import axios from 'axios';
 
-const Stack = createStackNavigator();
+const App = () => {
+  const [state, setState] = useState('');
+  const [message, setMessage] = useState('');
 
-export default function App() {
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/log-cigarette', { state });
+      setMessage(response.data.message);
+    } catch (error) {
+      console.error(error);
+      setMessage('Error al registrar.');
+    }
+  };
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="Log Cigarettes" component={LogCigarettesScreen} />
-        <Stack.Screen name="Stats" component={StatsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View>
+      <Text>Registra tu cigarro:</Text>
+      <TextInput
+        placeholder="Estado de ánimo"
+        value={state}
+        onChangeText={setState}
+      />
+      <Button title="Registrar" onPress={handleSubmit} />
+      <Text>{message}</Text>
+    </View>
   );
-}
+};
+
+export default App;
+

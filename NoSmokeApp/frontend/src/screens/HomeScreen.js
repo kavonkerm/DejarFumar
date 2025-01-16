@@ -6,9 +6,9 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Quit Smoking App</Text>
-      <Button title="Register" onPress={() => navigation.navigate('Register')} />
-      <Button title="Log Cigarettes" onPress={() => navigation.navigate('Log Cigarettes')} />
-      <Button title="View Stats" onPress={() => navigation.navigate('Stats')} />
+      <Button title="Registrar" onPress={() => navigation.navigate('Registrar')} />
+      <Button title="Registrar cigarrillos" onPress={() => navigation.navigate('Registrar cigarrillos')} />
+      <Button title="Ver estadísticas" onPress={() => navigation.navigate('Estadísticas')} />
     </View>
   );
 }

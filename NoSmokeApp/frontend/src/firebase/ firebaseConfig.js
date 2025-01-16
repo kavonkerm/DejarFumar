@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: 'app-nosmoking',
   storageBucket: 'YOUR_STORAGE_BUCKET',
   messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: 'YOUR_APP_ID',
+  appId: 'Y1:571745550303:android:3139d60817151460160e6a',
   measurementId: 'YOUR_MEASUREMENT_ID',
 };
 

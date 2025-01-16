@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "571745550303",
+    "project_id": "app-nosmoking",
+    "storage_bucket": "app-nosmoking.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571745550303:android:3139d60817151460160e6a",
+        "android_client_info": {
+          "package_name": "com.nosmokeaplicacion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjIkBKVivQo-rthusd3ajkctSceSMkf8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

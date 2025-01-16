@@ -2,7 +2,7 @@ import { firebase } from '@react-native-firebase/app';
 
 // Aquí va tu configuración de Firebase (reemplaza con tus credenciales)
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
+  apiKey: 'AIzaSyAjIkBKVivQo-rthusd3ajkctSceSMkf8c',
   authDomain: 'YOUR_AUTH_DOMAIN',
   projectId: 'app-nosmoking',
   storageBucket: 'YOUR_STORAGE_BUCKET',
